@@ -4,7 +4,7 @@ A custom entity modification of the AccuWeather integration in Home Assistant.
 
 This is a WIP for use with the default or any supported weather card in Home Assistant or HACS. It creates an entity that can be used anywhere entities are supported in Home Assistant.
 
-This custom component was created in an attempt to leverage the limited (free) API plan offered by AccuWeather. At the time of writing, the limited (free) plan offers a maximum of 50 calls/day. The provided Home Assistant integration for AccuWeather was exceeding the alotted number of calls in a day. This component calls the API once per hour for current conditions and the forecast. The frequencies can be adjusted manually if desired. (An option to make it configurable may make it to future updates if there is a demand for it.)
+This custom component was created in an attempt to leverage the limited (free) API plan offered by AccuWeather. At the time of writing, the limited (free) plan offers a maximum of 50 calls/day. The provided AccuWeather integration for Home Assistant was exceeding the alotted number of calls in a day. This component calls the API once per hour for current conditions and the forecast. The frequencies can be adjusted manually if desired. (An option to make it configurable may make it to future updates if there is a demand for it.)
 
 ---
 ## Installation
