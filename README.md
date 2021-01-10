@@ -41,4 +41,6 @@ This custom component was created in an attempt to leverage the limited (free) A
 
 ## For the Future
 
-The plan is to reduce the frequency of forecast polling to a maximum of 4 times a day. It is my thought that a 5 day forecast doesn't need to be as up to date as the current conditions. This will allow for the current conditions to be updated more frequently than once per hour. This also opens up the possibility for weather alerts. For now, functionality for intermitent viewing is more important. I have found that a majority of the time, I check the weather on my phone using a dedicated app or widget. Home Assistant is more of a general information portal for the day's weather.
+1. The plan is to reduce the frequency of forecast polling to a maximum of 4 times a day. It is my thought that a 5 day forecast doesn't need to be as up to date as the current conditions. This will allow for the current conditions to be updated more frequently than once per hour. This also opens up the possibility for weather alerts. For now, functionality for intermitent viewing is more important. I have found that a majority of the time, I check the weather on my phone using a dedicated app or widget. Home Assistant is more of a general information portal for the day's weather.
+
+2. A translation file and/or icons would be a nice feature set for this component. Though, at this time, that is out of scope for a component, better suited to an integration or frontend module.

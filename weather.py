@@ -97,18 +97,19 @@ class WeatherEntity(Entity):
     def parse_forecast(self, days):
         forecast = []
         for day in days:
-            if datetime.now().hour < 12:
-                time_flag = "Day"
-            else:
-                time_flag = "Night"
-            forecast.append(f'''
-                {{"datetime": "{day["Date"]}",
-                "temperature": "{day["Temperature"]["Maximum"]["Value"]}",
-                "condition": "{day[time_flag]["IconPhrase"]}",
-                "templow": "{day["Temperature"]["Minimum"]["Value"]}",
-                "precipitation": "{day[time_flag]["TotalLiquid"]["Value"]}",
-                "precipitation_probability": "{day[time_flag]["PrecipitationProbability"]}",
-                "wind_bearing": "{day[time_flag]["Wind"]["Direction"]["Degrees"]}",
-                "wind_speed": "{day[time_flag]["Wind"]["Speed"]["Value"]}"}},
-            ''')
+            if datetime.now().hour < 12: time_flag = "Day"
+            else: time_flag = "Night"
+
+            day_dict = {
+                "datetime": day["Date"],
+                "temperature": day["Temperature"]["Maximum"]["Value"],
+                "condition": day[time_flag]["IconPhrase"],
+                "templow": day["Temperature"]["Minimum"]["Value"],
+                "precipitation": day[time_flag]["TotalLiquid"]["Value"],
+                "precipitation_probability": day[time_flag]["PrecipitationProbability"],
+                "wind_bearing": day[time_flag]["Wind"]["Direction"]["Degrees"],
+                "wind_speed": day[time_flag]["Wind"]["Speed"]["Value"]
+            }
+
+            forecast.append(day_dict)
         return forecast
