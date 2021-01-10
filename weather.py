@@ -59,6 +59,7 @@ class WeatherEntity(Entity):
             with open(os.path.join(self._attributes['data_path'], 'current.json'), 'r') as f:
                 current = json.load(f)[0]
             f.close()
+        else: self.call_api()
         if self.data_file_exists('forecast.json'):
             with open(os.path.join(self._attributes['data_path'], 'forecast.json'), 'r') as f:
                 forecast = json.load(f)["DailyForecasts"]

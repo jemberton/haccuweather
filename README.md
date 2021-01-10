@@ -10,7 +10,7 @@ This custom component was created in an attempt to leverage the limited (free) A
 
 ## Installation
 
-1. Clone or download the repository into your `config/custom_components` directory.
+1. Clone or download the repository into your `config/custom_components` directory. Name or rename the directory `haccuweather`. (So it should be `config/custom-components/haccuweather`)
 
 2. Add the following to your `configuration.yaml` file.
 
