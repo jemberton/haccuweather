@@ -1,0 +1,8 @@
+{
+    "domain": "haccuweather",
+    "name": "Haccuweather",
+    "documentation": "https://github.com/jemberton/haccuweather",
+    "dependencies": [],
+    "codeowners": ["@jemberton"],
+    "requirements": []
+}
