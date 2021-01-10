@@ -12,6 +12,7 @@ class WeatherEntity(Entity):
         self._attributes = {
             'data_path': config['data_path'],
             'last_checked': 0,
+            'frequency': config['frequency'],
             'api_key': config['API_key'],
             'location_key': config['location_key'],
             'temperature': 0,
@@ -42,7 +43,7 @@ class WeatherEntity(Entity):
 
     def update(self):
         current_time = time.time()
-        if (current_time - self._attributes['last_checked']) > 3600: self.call_api()
+        if (current_time - self._attributes['last_checked']) > self._attributes['frequency']: self.call_api()
         self.get_states()
 
     def data_file_exists(self, file_state) -> bool:
@@ -82,7 +83,7 @@ class WeatherEntity(Entity):
         with open(os.path.join(self._attributes['data_path'], 'current.json'), 'w') as f:
             f.write(current.text)
         f.close()
-        #FIXME: Forecast has been temporaily disabled to reduce number of API calls during development. An old response file is in the data folder.
+        #FIXME: Forecast has been temporarily disabled to reduce number of API calls during development. An old response file is in the data folder.
         #forecast = requests.get(f'http://dataservice.accuweather.com/forecasts/v1/daily/5day/{self._attributes["location_key"]}?apikey={self._attributes["api_key"]}&details=true')
         #with open(os.path.join(self._attributes['data_path'], 'forecast.json'), 'w') as f:
             #f.write(forecast.text)
