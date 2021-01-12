@@ -5,7 +5,9 @@ from datetime import datetime
 _LOGGER = logging.getLogger(__name__)
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
-    add_entities([WeatherEntity(config)])
+    global haccuweather_entity
+    haccuweather_entity = WeatherEntity(config)
+    add_entities([haccuweather_entity])
 
 class WeatherEntity(Entity):
     def __init__(self, config):
@@ -59,7 +61,6 @@ class WeatherEntity(Entity):
             with open(os.path.join(self._attributes['data_path'], 'current.json'), 'r') as f:
                 current = json.load(f)[0]
             f.close()
-        else: self.call_api()
         if self.data_file_exists('forecast.json'):
             with open(os.path.join(self._attributes['data_path'], 'forecast.json'), 'r') as f:
                 forecast = json.load(f)["DailyForecasts"]

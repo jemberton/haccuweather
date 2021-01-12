@@ -21,6 +21,7 @@ This custom component was created in an attempt to leverage the limited (free) A
         API_key: <your_AccuWeather_API_key>
         location_key: <your_AccuWeather_location_key>
         frequency: <time_in_seconds> #3600 (1 hour) is recommended for the limited plan
+    haccuweather:
     ```
 
     The `data_path` must be writable by the user running Home Assistant. The script that fetches the data from the [AccuWeather API](https://developer.accuweather.com/) will write two files into this directory (`current.json` & `forecast.json`). These two files will contain the responses from Python requests using the `location_key` & your `API_key`. See the [AccuWeather API](https://developer.accuweather.com/) reference page for obtaining an [API key](https://developer.accuweather.com/user/me/apps) and [location key](https://developer.accuweather.com/accuweather-locations-api/apis).
@@ -28,6 +29,12 @@ This custom component was created in an attempt to leverage the limited (free) A
     `frequency` is the number of seconds from the last check that the component should call the API.
 
 3. Restart Home Assistant.
+
+---
+
+## Changelog
+
+2021JAN11: Added custom service to call API manually/forecfully. See service `haccuweather.call_api` in developer tools or in available service calls in automations/scripts.
 
 ---
 
